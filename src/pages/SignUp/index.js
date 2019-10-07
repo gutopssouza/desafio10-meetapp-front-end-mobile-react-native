@@ -1,8 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 
 import logo from '~/assets/M.png';
+
+import { signUpRequest } from '~/store/modules/auth/actions';
 
 import Background from '~/components/Background';
 
@@ -16,6 +19,7 @@ import {
 } from './styles';
 
 export default function SignUp({ navigation }) {
+  const dispatch = useDispatch();
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -23,7 +27,11 @@ export default function SignUp({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  function handleSubmit() {}
+  const loading = useSelector(state => state.auth.loading);
+
+  function handleSubmit() {
+    dispatch(signUpRequest(name, email, password));
+  }
 
   return (
     <Background>
@@ -65,7 +73,9 @@ export default function SignUp({ navigation }) {
           />
         </Form>
 
-        <SubmitButton onPress={handleSubmit}>Criar conta</SubmitButton>
+        <SubmitButton loading={loading} onPress={handleSubmit}>
+          Criar conta
+        </SubmitButton>
 
         <SignLink onPress={() => navigation.navigate('SignIn')}>
           <SignLinkText>Já tenho conta</SignLinkText>
