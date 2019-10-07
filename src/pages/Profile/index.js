@@ -4,7 +4,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {
   Container,
-  Title,
   Form,
   FormInput,
   SubmitButton,
@@ -12,6 +11,7 @@ import {
   LogoutButton,
 } from './styles';
 
+import Header from '~/components/Header';
 import Background from '~/components/Background';
 
 import { updateProfileRequest } from '~/store/modules/user/actions';
@@ -57,7 +57,7 @@ export default function Profile() {
   return (
     <Background>
       <Container>
-        <Title>Meu Perfil</Title>
+        <Header />
         <Form>
           <FormInput
             icon="person-outline"
