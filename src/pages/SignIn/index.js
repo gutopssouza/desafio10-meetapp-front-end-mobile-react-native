@@ -3,10 +3,14 @@ import { Text } from 'react-native';
 
 import { Container } from './styles';
 
+import Background from '~/components/Background';
+
 export default function SignIn() {
   return (
-    <Container>
-      <Text>SIGNIN</Text>
-    </Container>
+    <Background>
+      <Container>
+        <Text>SIGNIN</Text>
+      </Container>
+    </Background>
   );
 }
