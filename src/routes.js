@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
+import Subscribes from './pages/Subscribes';
 import Profile from './pages/Profile';
 
 export default (isSigned = false) =>
@@ -19,6 +20,7 @@ export default (isSigned = false) =>
         App: createBottomTabNavigator(
           {
             Dashboard,
+            Subscribes,
             Profile,
           },
           {

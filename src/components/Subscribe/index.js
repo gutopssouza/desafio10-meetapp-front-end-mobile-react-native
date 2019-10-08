@@ -16,18 +16,18 @@ import {
   ContainerContent,
 } from './styles';
 
-export default function Meetup({ data, onSubscribe }) {
+export default function Subscribe({ data, onUnsubscribe }) {
   return (
     <Container>
       <Banner
         source={{
-          uri: data.banner
-            ? data.banner.url
-            : `https://api.adorable.io/avatar/50/${data.title}`,
+          uri: data.Meetup.banner
+            ? data.Meetup.banner.url
+            : `https://api.adorable.io/avatar/50/${data.Meetup.title}`,
         }}
       />
       <ContainerContent>
-        <Title>{data.title}</Title>
+        <Title>{data.Meetup.title}</Title>
         <Info>
           <Date>
             <Icon name="event" size={14} color="#999" />
@@ -35,16 +35,16 @@ export default function Meetup({ data, onSubscribe }) {
           </Date>
           <Locale>
             <Icon name="location-on" size={14} color="#999" />
-            <LocaleText>{data.location}</LocaleText>
+            <LocaleText>{data.Meetup.location}</LocaleText>
           </Locale>
           <Host>
             <Icon name="person" size={14} color="#999" />
-            <HostText>{`Organizador: ${data.User.name}`}</HostText>
+            <HostText>{`Organizador: ${data.Meetup.User.name}`}</HostText>
           </Host>
         </Info>
-        {!data.past && (
-          <SubscribeButton onPress={onSubscribe}>
-            Realizar inscrição
+        {!data.Meetup.past && (
+          <SubscribeButton onPress={onUnsubscribe}>
+            Cancelar inscrição
           </SubscribeButton>
         )}
       </ContainerContent>
