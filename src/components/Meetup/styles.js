@@ -26,9 +26,51 @@ export const Banner = styled.Image`
   border-radius: 4px;
 `;
 
-export const Title = styled.Text``;
-export const Info = styled.View``;
-export const Data = styled.Text``;
-export const Locale = styled.Text``;
-export const Host = styled.Text``;
-export const SubscribeButton = styled(Button)``;
+export const Title = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+`;
+
+export const Info = styled.View`
+  margin-top: 10px;
+`;
+
+export const Date = styled.View`
+  margin-top: 10px;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const DateText = styled.Text`
+  font-size: 14px;
+  color: #999;
+  margin-left: 5px;
+`;
+
+export const Locale = styled.View`
+  margin-top: 5px;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const LocaleText = styled.Text`
+  font-size: 14px;
+  color: #999;
+  margin-left: 5px;
+`;
+
+export const Host = styled.View`
+  margin-top: 5px;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const HostText = styled.Text`
+  font-size: 14px;
+  color: #999;
+  margin-left: 5px;
+`;
+
+export const SubscribeButton = styled(Button)`
+  margin-top: 15px;
+`;

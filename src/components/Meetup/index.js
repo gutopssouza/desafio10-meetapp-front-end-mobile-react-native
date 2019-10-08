@@ -1,32 +1,53 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {
   Container,
   Banner,
   Title,
   Info,
-  Data,
+  Date,
+  DateText,
   Locale,
+  LocaleText,
   Host,
+  HostText,
   SubscribeButton,
   ContainerContent,
 } from './styles';
 
-import logo from '~/assets/testebannermeetapp.jpg';
-
-export default function Meetup() {
+export default function Meetup({ data }) {
   return (
     <Container>
-      <Banner source={logo} />
+      <Banner
+        source={{
+          uri: data.banner
+            ? data.banner.url
+            : `https://api.adorable.io/avatar/50/${data.provider.name}`,
+        }}
+      />
       <ContainerContent>
-        <Title>Meetup de React Native</Title>
+        <Title>{data.title}</Title>
         <Info>
-          <Data>7 de outubro, às 21h</Data>
-          <Locale>Rua Paulo Bathke, 259</Locale>
-          <Host>Organizador: Augusto Pacheco</Host>
+          <Date>
+            <Icon name="event" size={14} color="#999" />
+            <DateText>{data.dateFormatted}</DateText>
+          </Date>
+          <Locale>
+            <Icon name="location-on" size={14} color="#999" />
+            <LocaleText>{data.location}</LocaleText>
+          </Locale>
+          <Host>
+            <Icon name="person" size={14} color="#999" />
+            <HostText>{`Organizador: ${data.User.name}`}</HostText>
+          </Host>
         </Info>
+        {!data.past && (
+          <SubscribeButton onPress={() => {}}>
+            Realizar inscrição
+          </SubscribeButton>
+        )}
       </ContainerContent>
-      <SubscribeButton onPress={() => {}}>Realizar inscrição</SubscribeButton>
     </Container>
   );
 }
