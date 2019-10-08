@@ -13,7 +13,7 @@ import { Container, List } from './styles';
 import Subscribe from '~/components/Subscribe';
 
 export default function Subscribes() {
-  const [meetups, setMeetups] = useState([]);
+  const [subscribes, setSubscribes] = useState([]);
 
   useEffect(() => {
     async function loadSubscribes() {
@@ -33,10 +33,10 @@ export default function Subscribes() {
           dateFormatted,
         };
       });
-      setMeetups(data);
+      setSubscribes(data);
     }
     loadSubscribes();
-  }, []);
+  }, [subscribes]);
 
   async function handleUnsubscription(id) {
     try {
@@ -52,7 +52,7 @@ export default function Subscribes() {
       <Header />
       <Container>
         <List
-          data={meetups}
+          data={subscribes}
           keyExtractor={item => String(item.id)}
           onEndReachedThreshold={0.2}
           renderItem={({ item }) => (
