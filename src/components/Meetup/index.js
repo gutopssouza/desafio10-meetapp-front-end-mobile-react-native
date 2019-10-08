@@ -16,7 +16,7 @@ import {
   ContainerContent,
 } from './styles';
 
-export default function Meetup({ data }) {
+export default function Meetup({ data, onSubscribe }) {
   return (
     <Container>
       <Banner
@@ -43,7 +43,7 @@ export default function Meetup({ data }) {
           </Host>
         </Info>
         {!data.past && (
-          <SubscribeButton onPress={() => {}}>
+          <SubscribeButton onPress={onSubscribe}>
             Realizar inscrição
           </SubscribeButton>
         )}
